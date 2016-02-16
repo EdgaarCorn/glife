@@ -64,7 +64,13 @@ elseif son < 17:
 
 		gs 'stat'
 
-		if budilnikOn = 1 and hour = timer and minut = timerM:
+		if hour = 2 and (daystart - brotherDay) > 1 and brotherSex >= 10 and $locM = 'bedrPar':
+			$metkaM = 'brother_bed1'
+			locM = 'brother'
+			dynamic $wakepar
+					
+		
+		elseif budilnikOn = 1 and hour = timer and minut = timerM:
 			manna -= 10
 			'Your alarm goes off.'
 

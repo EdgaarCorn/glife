@@ -12,7 +12,7 @@ brotherQW: Quest stages
 brotherAge: your age - 2
 brotherknowslut: brother knowledge of your sexual activity (1 = seen cum, 2 = groupsex in park)
 pregTalkBrother: Flag 0/1 Do your brother know you are pregnant
-brotherDay:
+brotherDay: The last day you helped your brother
 brotherSexCount: the number of times left that you can have sex with your brother today (resets to 5 each day)
 brotherMorningSex: Last day this happend. Used to block to once a day. 
 brotherNightSex: Last day this happend. Used to block to once a day. 
@@ -23,7 +23,7 @@ brother_body_show
 brother_knows_not_virgin
 natbro:  number of times Natasha sucked your brother (can only happen once at the moment)
 BrotherNo:
-brother_ev1 
+brother_ev1: 
 '!
 
 
@@ -357,6 +357,8 @@ if $loc = 'sitrPar':
 					brotherSexCount -= 1
 					if brotherSex > 10 : brotherSex = 10
 					brotherMorningSex = daystart
+					brotherDay = daystart
+					
 					gs 'stat'
 
 					'<center><img src="images/qwest/alexey/bj6.jpg"></center>'
@@ -474,6 +476,7 @@ $brothersleepSexEnd = {
 	brotherSexCount -= 1
 	minut += 15
 	if brotherSex > 10: brotherSex = 10
+	brotherDay = daystart
 
 	gs 'stat'
 
@@ -770,6 +773,7 @@ $brotherSexEnd = {
 	brotherSex += 1
 	if brotherSex > 10: brotherSex = 10
 	brotherSexCount -= 1
+	brotherDay = daystart
 	
 	if sub > 0 or (evgenQW >= 4 and GorSlut >= 3):
 		if $loc = 'sitrPar' and father_go = 1 and hour >= 18 and hour < 21:
@@ -1219,6 +1223,17 @@ if $ARGS[0] = 'brother_voyeur_ev8':
 		end
 		act'Dress':gt $CURLOC
 	end
+end
+
+
+if $ARGS[0] = 'brother_bed1':
+	cla
+	cls
+	gs'stat'
+	picrand = RAND(1,2)
+	'<center><img src="images/qwest/alter/ev2/brother/f (6.<<picrand>>).jpg"></center>'
+	'You wake up with your brother standing over you.'
+	act'throw him out':gt $loc, $metka
 end
 
 --- brother ---------------------------------
